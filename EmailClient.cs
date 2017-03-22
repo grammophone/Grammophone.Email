@@ -85,6 +85,7 @@ namespace Grammophone.Email
 			var mailMessage = new MailMessage
 			{
 				Sender = new MailAddress(sender ?? settings.DefaultSenderAddress),
+				From = new MailAddress(sender ?? settings.DefaultSenderAddress),
 				Subject = subject,
 				Body = body,
 				IsBodyHtml = isBodyHTML,
@@ -119,6 +120,11 @@ namespace Grammophone.Email
 			if (mailMessage.Sender == null)
 			{
 				mailMessage.Sender = new MailAddress(settings.DefaultSenderAddress);
+			}
+
+			if (mailMessage.From == null)
+			{
+				mailMessage.From = new MailAddress(settings.DefaultSenderAddress);
 			}
 
 			await smtpClient.SendMailAsync(mailMessage);
