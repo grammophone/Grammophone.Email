@@ -32,7 +32,7 @@ namespace Grammophone.Email
 		/// <param name="defaultSenderAddress">
 		/// The default sender e-mail address.
 		/// </param>
-		/// <param name="useSsl">
+		/// <param name="useSSL">
 		/// Use SSL if true.
 		/// </param>
 		public EmailSettings(
@@ -41,7 +41,7 @@ namespace Grammophone.Email
 			string userName, 
 			string password, 
 			string defaultSenderAddress, 
-			bool useSsl)
+			bool useSSL)
 		{
 			if (smtpServerName == null) throw new ArgumentNullException(nameof(smtpServerName));
 			if (userName == null) throw new ArgumentNullException(nameof(userName));
@@ -53,7 +53,7 @@ namespace Grammophone.Email
 			this.UserName = userName;
 			this.Password = password;
 			this.DefaultSenderAddress = defaultSenderAddress;
-			this.UseSSL = useSsl;
+			this.UseSSL = useSSL;
 		}
 
 		#endregion
