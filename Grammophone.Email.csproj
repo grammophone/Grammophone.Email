@@ -43,6 +43,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="EmailClient.cs" />
+    <Compile Include="EmailException.cs" />
     <Compile Include="EmailSettings.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

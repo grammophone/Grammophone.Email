@@ -68,6 +68,9 @@ namespace Grammophone.Email
 		/// the configured <see cref="EmailSettings.DefaultSenderAddress"/> is used.
 		/// </param>
 		/// <returns>Returns a task completing the action.</returns>
+		/// <exception cref="EmailException">
+		/// Thrown when there is an error sending the e-mail.
+		/// </exception>
 		/// <remarks>
 		/// The message's subject, headers and body encoding is set to UTF8.
 		/// </remarks>
@@ -101,7 +104,14 @@ namespace Grammophone.Email
 					mailMessage.To.Add(recepient.Trim());
 				}
 
-				await SendEmailAsync(mailMessage);
+				try
+				{
+					await SendEmailAsync(mailMessage);
+				}
+				catch (Exception ex)
+				{
+					throw new EmailException(mailMessage, ex);
+				}
 			}
 		}
 
@@ -113,6 +123,9 @@ namespace Grammophone.Email
 		/// the configured <see cref="EmailSettings.DefaultSenderAddress"/> is used.
 		/// </param>
 		/// <returns>Returns a task completing the action.</returns>
+		/// <exception cref="EmailException">
+		/// Thrown when there is an error sending the e-mail.
+		/// </exception>
 		public async Task SendEmailAsync(MailMessage mailMessage)
 		{
 			if (mailMessage == null) throw new ArgumentNullException(nameof(mailMessage));
@@ -127,7 +140,14 @@ namespace Grammophone.Email
 				mailMessage.From = new MailAddress(settings.DefaultSenderAddress);
 			}
 
-			await smtpClient.SendMailAsync(mailMessage);
+			try
+			{
+				await smtpClient.SendMailAsync(mailMessage);
+			}
+			catch (Exception ex)
+			{
+				throw new EmailException(mailMessage, ex);
+			}
 		}
 
 		/// <summary>
