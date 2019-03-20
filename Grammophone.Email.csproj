@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <ProjectGuid>{69E69A59-609B-441D-8E34-650E4D72F177}</ProjectGuid>
-    <TargetFramework>net472</TargetFramework>
+    <TargetFramework>netstandard2.0</TargetFramework>
     <AssemblyTitle>Grammophone.Email</AssemblyTitle>
     <Product>Grammophone.Email</Product>
     <Copyright>Copyright © Grammophone 2017</Copyright>
