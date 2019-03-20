@@ -18,7 +18,4 @@
     <None Remove=".git" />
     <None Remove=".gitignore" />
   </ItemGroup>
-  <ItemGroup>
-    <PackageReference Include="System.Net.Http" Version="4.*" />
-  </ItemGroup>
 </Project>
