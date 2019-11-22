@@ -32,15 +32,19 @@ namespace Grammophone.Email
 		/// <param name="defaultSenderAddress">
 		/// The default sender e-mail address.
 		/// </param>
+		/// <param name="defaultSenderDisplayName">
+		/// The display name of the default sender.
+		/// </param>
 		/// <param name="useSSL">
 		/// Use SSL if true.
 		/// </param>
 		public EmailSettings(
-			string smtpServerName, 
-			int smtpServerPort, 
-			string userName, 
-			string password, 
-			string defaultSenderAddress, 
+			string smtpServerName,
+			int smtpServerPort,
+			string userName,
+			string password,
+			string defaultSenderAddress,
+			string defaultSenderDisplayName,
 			bool useSSL)
 		{
 			if (smtpServerName == null) throw new ArgumentNullException(nameof(smtpServerName));
@@ -53,6 +57,7 @@ namespace Grammophone.Email
 			this.UserName = userName;
 			this.Password = password;
 			this.DefaultSenderAddress = defaultSenderAddress;
+			this.DefaultSenderDisplayName = defaultSenderDisplayName;
 			this.UseSSL = useSSL;
 		}
 
@@ -63,32 +68,37 @@ namespace Grammophone.Email
 		/// <summary>
 		/// The name of the SMTP server.
 		/// </summary>
-		public string SmtpServerName { get; private set; }
+		public string SmtpServerName { get; }
 
 		/// <summary>
 		/// The port of the SMTP server.
 		/// </summary>
-		public int SmtpServerPort { get; private set; }
+		public int SmtpServerPort { get; }
 
 		/// <summary>
 		/// The user name for the SMTP server.
 		/// </summary>
-		public string UserName { get; private set; }
+		public string UserName { get; }
 
 		/// <summary>
 		/// The password for the SMTP server.
 		/// </summary>
-		public string Password { get; private set; }
+		public string Password { get; }
 
 		/// <summary>
 		/// The default sender e-mail address.
 		/// </summary>
-		public string DefaultSenderAddress { get; private set; }
+		public string DefaultSenderAddress { get; }
+
+		/// <summary>
+		/// The display name of the default sender.
+		/// </summary>
+		public string DefaultSenderDisplayName { get; }
 
 		/// <summary>
 		/// Use SSL if true.
 		/// </summary>
-		public bool UseSSL { get; private set; }
+		public bool UseSSL { get; }
 
 		#endregion
 	}

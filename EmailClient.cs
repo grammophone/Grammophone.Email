@@ -132,12 +132,12 @@ namespace Grammophone.Email
 
 			if (mailMessage.Sender == null)
 			{
-				mailMessage.Sender = new MailAddress(settings.DefaultSenderAddress);
+				mailMessage.Sender = new MailAddress(settings.DefaultSenderAddress, settings.DefaultSenderDisplayName);
 			}
 
 			if (mailMessage.From == null)
 			{
-				mailMessage.From = new MailAddress(settings.DefaultSenderAddress);
+				mailMessage.From = new MailAddress(settings.DefaultSenderAddress, settings.DefaultSenderDisplayName);
 			}
 
 			try
